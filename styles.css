@@ -1,0 +1,148 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Fondo animado */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://tse1.mm.bing.net/th/id/OIP.Hn3WgApq2YYoYch4z8wvsgHaDX?rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Contenedor principal al estilo Persona */
+.persona-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(20, 20, 30, 0.85);
+}
+
+/* Encabezado */
+.persona-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.persona-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 0 #333;
+    animation: titleGlow 2s infinite alternate;
+}
+
+.persona-title span:nth-child(1) { color: #00ffff; }
+.persona-title span:nth-child(2) { color: #ff00ff; }
+.persona-title span:nth-child(3) { color: #ffff00; }
+
+.title-decoration {
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, #ffff00, transparent);
+    margin: 0 auto;
+    animation: decorationPulse 3s infinite;
+}
+
+/* Menú estilo Persona */
+.persona-menu {
+    display: flex;
+    gap: 40px;
+}
+
+.menu-option {
+    width: 280px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    perspective: 1000px;
+}
+
+.option-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #555;
+    background-color: rgba(40, 40, 50, 0.7);
+    clip-path: polygon(
+        0 0, calc(100% - 15px) 0, 100% 15px,
+        100% 100%, 15px 100%, 0 calc(100% - 15px)
+    );
+    transition: all 0.3s ease;
+}
+
+.option-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.option-content span {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ddd;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Animaciones */
+@keyframes titleGlow {
+    0% { text-shadow: 3px 3px 0 #333, 0 0 10px rgba(0, 255, 255, 0.5); }
+    100% { text-shadow: 3px 3px 0 #333, 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.5); }
+}
+
+@keyframes decorationPulse {
+    0% { opacity: 0.7; transform: scaleX(0.9); }
+    50% { opacity: 1; transform: scaleX(1.1); }
+    100% { opacity: 0.7; transform: scaleX(0.9); }
+}
+
+/* Efectos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .persona-title {
+        font-size: 2rem;
+    }
+    
+    .persona-menu {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .menu-option {
+        width: 250px;
+        height: 80px;
+    }
+    
+    .option-content span {
+        font-size: 1.1rem;
+    }
+}

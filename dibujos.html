@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoddyArt - Dibujos</title>
+    <link rel="stylesheet" href="dibujos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background"></div>
+    
+    <div class="persona-container">
+        <header class="persona-header">
+            <h1 class="persona-title">GALERÍA DE <span>DIBU</span><span>JOS</span></h1>
+            <div class="title-decoration"></div>
+        </header>
+        
+        <div class="persona-menu">
+            <div class="menu-option" data-option="1" onclick="selectCategory('Personas')">
+                <div class="option-frame"></div>
+                <div class="option-content">
+                    <span>PERSONAS</span>
+                </div>
+            </div>
+            
+            <div class="menu-option" data-option="2" onclick="selectCategory('paisajes')">
+                <div class="option-frame"></div>
+                <div class="option-content">
+                    <span>PAISAJES</span>
+                </div>
+            </div>
+            
+            <div class="menu-option" data-option="3" onclick="selectCategory('videojuegos')">
+                <div class="option-frame"></div>
+                <div class="option-content">
+                    <span>VIDEOJUEGOS</span>
+                </div>
+            </div>
+            
+            <div class="menu-option" data-option="4" onclick="selectCategory('otros')">
+                <div class="option-frame"></div>
+                <div class="option-content">
+                    <span>OTROS</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="animated-gif-container">
+            <img src="https://th.bing.com/th/id/R.e4efe4cf70da94c70abf5fffd9b99f6c?rik=Lje%2b5havyVEABA&pid=ImgRaw&r=0" alt="Animación" class="animated-gif">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.menu-option');
+            
+            options.forEach(option => {
+                option.addEventListener('mouseenter', function() {
+                    this.style.transform = 'rotate(3deg) scale(1.1)';
+                    this.querySelector('.option-frame').style.borderColor = '#00ffff';
+                    this.querySelector('.option-frame').style.boxShadow = '0 0 15px #00ffff';
+                    this.querySelector('span').style.color = '#00ffff';
+                    this.querySelector('span').style.textShadow = '0 0 10px #00ffff';
+                });
+                
+                option.addEventListener('mouseleave', function() {
+                    this.style.transform = 'rotate(0deg) scale(1)';
+                    this.querySelector('.option-frame').style.borderColor = '#555';
+                    this.querySelector('.option-frame').style.boxShadow = 'none';
+                    this.querySelector('span').style.color = '#ddd';
+                    this.querySelector('span').style.textShadow = 'none';
+                });
+                
+                option.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'rotate(3deg) scale(1.1)';
+                    }, 150);
+                });
+            });
+        });
+        
+        function selectCategory(category) {
+            // Redirige a la página específica de la categoría
+            window.location.href = category + '.html';
+        }
+    </script>
+</body>
+</html>

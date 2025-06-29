@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoddyArt - Personas</title>
+    <link rel="stylesheet" href="personas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background"></div>
+    
+    <div class="persona-container">
+        <header class="persona-header">
+            <h1 class="persona-title">DIBUJOS DE <span>PERS</span><span>ONAS</span></h1>
+            <div class="title-decoration"></div>
+            <div class="back-button" onclick="navigateTo('dibujos.html')">← VOLVER A CATEGORÍAS</div>
+        </header>
+        
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <!-- Ejemplo de cuadros de dibujos (agregados manualmente) -->
+                <div class="art-box neon-box">
+                    <div class="art-image" style="background-image: url('imagenes/persona1.jpg');"></div>
+                    <div class="art-info">
+                        <h3>Retrato Clásico</h3>
+                        <p>Técnica: Lápiz carbón | 2023</p>
+                    </div>
+                </div>
+                
+                <div class="art-box neon-box">
+                    <div class="art-image" style="background-image: url('imagenes/persona2.jpg');"></div>
+                    <div class="art-info">
+                        <h3>Expresión Moderna</h3>
+                        <p>Técnica: Acuarela digital | 2024</p>
+                    </div>
+                </div>
+                
+                <div class="art-box neon-box">
+                    <div class="art-image" style="background-image: url('imagenes/persona3.jpg');"></div>
+                    <div class="art-info">
+                        <h3>Estudio de Luz</h3>
+                        <p>Técnica: Óleo | 2023</p>
+                    </div>
+                </div>
+                
+                <div class="art-box neon-box">
+                    <div class="art-image" style="background-image: url('file:///D:/dibujos/pixel/CODDY_1.png');"></div>
+                    <div class="art-info">
+                        <h3>Coddy</h3>
+                        <p>Personaje que representa CoddyArt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efectos hover para los cuadros
+            const artBoxes = document.querySelectorAll('.art-box');
+            artBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.8)';
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0 0 10px rgba(0, 255, 255, 0.5)';
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+        
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

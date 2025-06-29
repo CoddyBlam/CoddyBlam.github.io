@@ -1,0 +1,180 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+/* Fondo animado */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://tse2.mm.bing.net/th/id/OIP.uimYLrA16J-vYAoxnSgoNAHaFt?rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.9;
+}
+
+/* Contenedor principal al estilo Persona */
+.persona-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(10, 10, 20, 0.85);
+    padding: 30px 20px;
+}
+
+/* Encabezado */
+.persona-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.persona-title {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 0 #333;
+    animation: titleGlow 2s infinite alternate;
+}
+
+.persona-title span:nth-child(1) { color: #00ffff; }
+.persona-title span:nth-child(2) { color: #ff00ff; }
+
+.title-decoration {
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+    margin: 0 auto 20px;
+    animation: decorationPulse 3s infinite;
+}
+
+/* Botón de volver */
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgba(40, 40, 50, 0.7);
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.back-button:hover {
+    background-color: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Contenedor de la galería */
+.gallery-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Grid de galería */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+/* Cuadros neon */
+.neon-box {
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+}
+
+.art-box {
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+}
+
+.art-image {
+    flex-grow: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.art-info {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.art-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.art-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Animaciones */
+@keyframes titleGlow {
+    0% { text-shadow: 3px 3px 0 #333, 0 0 10px rgba(0, 255, 255, 0.5); }
+    100% { text-shadow: 3px 3px 0 #333, 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.5); }
+}
+
+@keyframes decorationPulse {
+    0% { opacity: 0.7; transform: scaleX(0.9); }
+    50% { opacity: 1; transform: scaleX(1.1); }
+    100% { opacity: 0.7; transform: scaleX(0.9); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .persona-title {
+        font-size: 2rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .art-info h3 {
+        font-size: 1rem;
+    }
+    
+    .art-info p {
+        font-size: 0.8rem;
+    }
+}
